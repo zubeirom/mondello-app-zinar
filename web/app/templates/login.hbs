@@ -2,6 +2,16 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="ui stackable grid">
     <div class="four wide column"></div>
     <div class="eight wide column">
@@ -27,12 +37,6 @@
                         {{else}}
                         {{input value=this.password type="password" placeholder="password" enter=(action "redirect")}}
                         {{/if}}
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui toggle checkbox">
-                        {{input checked=this.showPassword type="checkbox" name="public" }}
-                        <label>Show Password <i class="eye icon"></i></label>
                     </div>
                 </div>
                 {{#if this.loader}}
