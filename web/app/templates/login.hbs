@@ -9,27 +9,24 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
 <div class="ui stackable grid">
-    <div class="four wide column"></div>
-    <div class="eight wide column">
+    <div class="six wide column"></div>
+    <div class="four wide column">
         <div class="ui green raised segment">
             <h1 class="ui medium green header">
-                Login to your Account
+                Account einloggen
             </h1>
             <br>
             <div class="ui form">
                 <div class="field">
-                    <label for="">Enter Username</label>
+                    <label for="">Benutzername</label>
                     <div class="ui left icon input">
                         <i class="user icon"></i>
                         {{input value=this.username type="text" placeholder="username" enter=(action "redirect")}}
                     </div>
                 </div>
                 <div class="field">
-                    <label for="">Enter Password</label>
+                    <label for="">Kennwort</label>
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
                         {{#if this.showPassword}}
@@ -49,5 +46,5 @@
             </div>
         </div>
     </div>
-    <div class="four wide column"></div>
+    <div class="six wide column"></div>
 </div>

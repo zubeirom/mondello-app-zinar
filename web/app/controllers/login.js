@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { set, action, get } from "@ember/object";
+import { set, action } from "@ember/object";
 
 export default class LoginController extends Controller {
   @service toast;
@@ -20,26 +20,21 @@ export default class LoginController extends Controller {
 
   @action
   async authenticate() {
-    this.toastr.info(
-      "Server (heroku) is starting up, this might take few seconds",
-      "Important Info"
-    );
     set(this, "loader", true);
     try {
-      if (this.isValid(this.username, this.password)) {
-        await get("session")
-          .authenticate("authenticator:oauth2", this.username, this.password)
-          .catch((reason) => {
-            set(this, "loader", false);
-            this.set("errorMessage", reason.error || reason);
-            this.toast.error("Password or username is wrong", "Error");
-          });
-      }
+      await this.session
+        .authenticate("authenticator:oauth2", this.username, this.password)
+        .catch((reason) => {
+          console.log(reason);
+          set(this, "loader", false);
+          this.toast.error("Kennwort oder Benutzername ist falsch", "Error");
+        });
       set(this, "loader", false);
     } catch (error) {
+      console.log(error);
       set(this, "loader", false);
       if (error) {
-        this.toast.error("Password or username is wrong", "Error");
+        this.toast.error("Kennwort oder Benutzername ist falsch", "Error");
       }
     }
   }
