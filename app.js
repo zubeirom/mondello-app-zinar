@@ -48,7 +48,10 @@ app.get("/wk", (req, res) => {
 app.put("/wk", async (req, res) => {
     try {
         await verify(req.headers.authorization);
-        fs.writeFile("wk.json", JSON.stringify(req.body), "utf8", () => {
+        fs.writeFile("wk.json", JSON.stringify(req.body), "utf8", (error) => {
+            if (error) {
+                res.status(500).send(error);
+            }
             res.json(req.body);
         });
     } catch (error) {
