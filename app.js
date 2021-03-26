@@ -60,7 +60,6 @@ app.get("/wk", (req, res) => {
         .find({})
         .toArray((err, result) => {
             res.json(result[0]);
-            db.close();
         });
 });
 
