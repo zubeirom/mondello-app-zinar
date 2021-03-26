@@ -66,15 +66,21 @@ app.get("/wk", (req, res) => {
 app.put("/wk", async (req, res) => {
     try {
         await verify(req.headers.authorization);
-        db.collection("wk").updateOne({ id: "1" }, req.body, (err, res) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send(err);
+        delete req.body._id;
+        db.collection("wk").updateOne(
+            { wkid: "1" },
+            { $set: req.body },
+            (err, result) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send(err);
+                }
+                res.json(req.body);
             }
-            res.json(req.body);
-        });
+        );
     } catch (error) {
-        res.status(401).send("Unauthorized");
+        console.error(error);
+        res.status(400).send("Bad");
     }
 });
 
