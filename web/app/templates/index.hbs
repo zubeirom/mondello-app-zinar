@@ -115,75 +115,83 @@
                     <label>Montag</label>
                     <div class="fields">
                         <div class="twelve wide field">
-                            {{input type="text" placeholder="Name vom Gericht"}}
+                            {{input value=this.model.monday.mondaymeal type="text" placeholder="Name vom Gericht"}}
                         </div>
                         <div class="four wide field">
-                            {{input type="number" placeholder="Preis"}}
+                            {{input value=this.model.monday.mondayprice type="number" placeholder="Preis"}}
                         </div>
                     </div>
                     <div class="field">
-                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                        {{textarea value=this.model.monday.mondaydesc type="text" placeholder="Beschreibung des
+                        Gerichts" rows="2"}}
                     </div>
                 </div>
                 <div class="field">
                     <label>Dienstag</label>
                     <div class="fields">
                         <div class="twelve wide field">
-                            {{input type="text" placeholder="Name vom Gericht"}}
+                            {{input value=this.model.tuesday.tuesdaymeal type="text" placeholder="Name vom Gericht"}}
                         </div>
                         <div class="four wide field">
-                            {{input type="number" placeholder="Preis"}}
+                            {{input value=this.model.tuesday.tuesdayprice type="number" placeholder="Preis"}}
                         </div>
                     </div>
                     <div class="field">
-                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                        {{textarea value=this.model.tuesday.tuesdaydesc type="text" placeholder="Beschreibung des
+                        Gerichts" rows="2"}}
                     </div>
                 </div>
                 <div class="field">
                     <label>Mittwoch</label>
                     <div class="fields">
                         <div class="twelve wide field">
-                            {{input type="text" placeholder="Name vom Gericht"}}
+                            {{input value=this.model.wednesday.wednesdaymeal type="text" placeholder="Name vom
+                            Gericht"}}
                         </div>
                         <div class="four wide field">
-                            {{input type="number" placeholder="Preis"}}
+                            {{input value=this.model.wednesday.wednesdayprice type="number" placeholder="Preis"}}
                         </div>
                     </div>
                     <div class="field">
-                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                        {{textarea value=this.model.wednesday.wednesdaydesc type="text" placeholder="Beschreibung des
+                        Gerichts"
+                        rows="2"}}
                     </div>
                 </div>
                 <div class="field">
                     <label>Donnerstag</label>
                     <div class="fields">
                         <div class="twelve wide field">
-                            {{input type="text" placeholder="Name vom Gericht"}}
+                            {{input value=this.model.thursday.thursdaymeal type="text" placeholder="Name vom Gericht"}}
                         </div>
                         <div class="four wide field">
-                            {{input type="number" placeholder="Preis"}}
+                            {{input value=this.model.thursday.thursdayprice type="number" placeholder="Preis"}}
                         </div>
                     </div>
                     <div class="field">
-                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                        {{textarea value=this.model.thursday.thursdaydesc type="text" placeholder="Beschreibung des
+                        Gerichts"
+                        rows="2"}}
                     </div>
                 </div>
                 <div class="field">
                     <label>Freitag</label>
                     <div class="fields">
                         <div class="twelve wide field">
-                            {{input type="text" placeholder="Name vom Gericht"}}
+                            {{input value=this.model.friday.fridaymeal type="text" placeholder="Name vom Gericht"}}
                         </div>
                         <div class="four wide field">
-                            {{input type="number" placeholder="Preis"}}
+                            {{input value=this.model.friday.fridayprice type="number" placeholder="Preis"}}
                         </div>
                     </div>
                     <div class="field">
-                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                        {{textarea value=this.model.friday.fridaydesc type="text" placeholder="Beschreibung des
+                        Gerichts" rows="2"}}
                     </div>
                 </div>
                 <br>
                 <div class="field">
-                    <button class="ui fluid green button">
+                    <button class="ui fluid green button" {{action "save" }}>
                         <i class="save icon"></i> Speichern
                     </button>
                 </div>

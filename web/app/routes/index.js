@@ -8,7 +8,8 @@ export default class IndexRoute extends Route {
     this.session.requireAuthentication(transition, "login");
   }
 
-  afterModel() {
-    console.log(this.session);
+  async model() {
+    const res = await fetch("http://localhost:3000/wk");
+    return await res.json();
   }
 }
