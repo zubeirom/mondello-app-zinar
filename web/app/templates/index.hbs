@@ -1,0 +1,193 @@
+{{! template-lint-disable}}
+<style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.3/semantic.min.css');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+        background-color: #dadada;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #cinoheader {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #cardheader {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    #card {
+        border-radius: 0px;
+    }
+
+    #ribbon {
+        border-radius: 0px;
+    }
+
+    div #bookbutton {
+        color: #ea2424
+    }
+
+    .sotbutton {
+        background-color: transparent !important;
+        border: 2px solid black !important;
+        color: black !important;
+    }
+
+    .sotbutton:hover {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    #bookbutton:hover {
+        background-color: #ea2424;
+        color: white
+    }
+
+    #saleButton {
+        background-color: #2185d0;
+        border-radius: 0px;
+    }
+
+    #sotlogo {
+        margin-top: -10px !important;
+    }
+
+    #raten {
+        color: red
+    }
+
+    .raten {
+        size: 12px;
+    }
+
+    #welcome {
+        color: darkslategray;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: grey !important;
+        opacity: 1 !important;
+        /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: grey !important;
+    }
+
+    ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: grey !important;
+    }
+</style>
+
+<div class="ui tablet computer only grid">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<div class="ui mobile only grid">
+    <br>
+    <br>
+    <br>
+</div>
+
+<div class="ui container">
+    <div class="ui raised segment" style="border-radius: 15px!important;">
+        <div class="ui center aligned medium header">
+            <strong id="welcome">
+                Wochenkarte
+            </strong>
+        </div>
+        <br>
+        <div class="ui container">
+            <div class="ui form">
+                <div class="field">
+                    <label>Montag</label>
+                    <div class="fields">
+                        <div class="twelve wide field">
+                            {{input type="text" placeholder="Name vom Gericht"}}
+                        </div>
+                        <div class="four wide field">
+                            {{input type="number" placeholder="Preis"}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Dienstag</label>
+                    <div class="fields">
+                        <div class="twelve wide field">
+                            {{input type="text" placeholder="Name vom Gericht"}}
+                        </div>
+                        <div class="four wide field">
+                            {{input type="number" placeholder="Preis"}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Mittwoch</label>
+                    <div class="fields">
+                        <div class="twelve wide field">
+                            {{input type="text" placeholder="Name vom Gericht"}}
+                        </div>
+                        <div class="four wide field">
+                            {{input type="number" placeholder="Preis"}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Donnerstag</label>
+                    <div class="fields">
+                        <div class="twelve wide field">
+                            {{input type="text" placeholder="Name vom Gericht"}}
+                        </div>
+                        <div class="four wide field">
+                            {{input type="number" placeholder="Preis"}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Freitag</label>
+                    <div class="fields">
+                        <div class="twelve wide field">
+                            {{input type="text" placeholder="Name vom Gericht"}}
+                        </div>
+                        <div class="four wide field">
+                            {{input type="number" placeholder="Preis"}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        {{textarea type="text" placeholder="Beschreibung des Gerichts" rows="2"}}
+                    </div>
+                </div>
+                <br>
+                <div class="field">
+                    <button class="ui fluid green button">
+                        <i class="save icon"></i> Speichern
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
