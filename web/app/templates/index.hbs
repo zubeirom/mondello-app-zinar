@@ -112,6 +112,17 @@
         <div class="ui container">
             <div class="ui form">
                 <div class="field">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="">Von Wann</label>
+                            {{input value=this.model.from type="text" placeholder="Datum eingeben"}}
+                        </div>
+                        <div class="field">
+                            <label for="">Bis Wann</label>
+                            {{input value=this.model.to type="text" placeholder="Datum eingeben"}}
+
+                        </div>
+                    </div>
                     <label>Montag</label>
                     <div class="fields">
                         <div class="twelve wide field">
