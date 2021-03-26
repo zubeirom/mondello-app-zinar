@@ -202,7 +202,7 @@
                 </div>
                 <br>
                 <div class="field">
-                    <button class="ui fluid green button" {{action "save" }}>
+                    <button class="ui fluid green button" onclick="showModal()">
                         <i class="save icon"></i> Speichern
                     </button>
                 </div>
@@ -210,3 +210,33 @@
         </div>
     </div>
 </div>
+
+<div class="ui mini modal">
+    <div class="ui icon header">
+        <i class="save icon"></i>
+        Wochenkarte speichern
+    </div>
+    <div class="content">
+        <p style="text-align: center;">Sobald du speicherst sind die Änderungen auf der Hauptseite sichtbar. Bist du
+            sicher das du die Änderungen übernehmen willst?</p>
+    </div>
+    <div class="actions">
+        <div class="ui red cancel inverted button">
+            <i class="remove icon"></i>
+            Nein
+        </div>
+        <div class="ui green ok inverted button" {{action "save" }}>
+            <i class="checkmark icon"></i>
+            Ja
+        </div>
+    </div>
+</div>
+
+<script>
+    function showModal() {
+        $('.ui.mini.modal')
+            .modal('show')
+            ;
+    }
+
+</script>

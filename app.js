@@ -4,6 +4,7 @@ const cors = require("cors");
 const wk = require("./wk.json");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("express");
+const fs = require("fs");
 
 const app = express();
 
@@ -11,6 +12,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.post("/token", async (req, res) => {
     const { username, password, grant_type } = req.body;
@@ -42,6 +44,22 @@ app.post("/token", async (req, res) => {
 app.get("/wk", (req, res) => {
     res.json(wk);
 });
+
+app.put("/wk", async (req, res) => {
+    try {
+        await verify(req.headers.authorization);
+        fs.writeFile("wk.json", JSON.stringify(req.body), "utf8", () => {
+            res.json(req.body);
+        });
+    } catch (error) {
+        res.status(401).send("Unauthorized");
+    }
+});
+
+async function verify(header) {
+    const token = header.split(" ")[1];
+    await jwt.verify(token, process.env.JWT_PRIVATE_KEY);
+}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
