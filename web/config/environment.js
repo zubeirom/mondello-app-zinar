@@ -24,7 +24,7 @@ module.exports = function (environment) {
   };
 
   ENV["ember-simple-auth"] = {
-    serverTokenEndpoint: "http://localhost:3000/token",
+    serverTokenEndpoint: "https://api-mondello.vercel.app/token",
     routeAfterAuthentication: "index",
   };
 

@@ -7,7 +7,7 @@ export default class IndexController extends Controller {
 
   @action
   async save() {
-    const response = await fetch("http://localhost:3000/wk", {
+    const response = await fetch("https://api-mondello.vercel.app/wk", {
       method: "PUT", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       headers: {

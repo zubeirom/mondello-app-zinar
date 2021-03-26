@@ -9,7 +9,7 @@ export default class IndexRoute extends Route {
   }
 
   async model() {
-    const res = await fetch("http://localhost:3000/wk");
+    const res = await fetch("https://api-mondello.vercel.app/wk");
     return await res.json();
   }
 }
