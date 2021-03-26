@@ -20,5 +20,9 @@ export default class IndexController extends Controller {
       this.session.invalidate();
       this.toast.error("Nicht Erlaubt");
     }
+
+    if (response.status === 200) {
+      this.toast.success("Änderungen gespeichert", "Fertig!");
+    }
   }
 }
