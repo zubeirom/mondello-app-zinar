@@ -5,6 +5,7 @@ const wk = require("./wk.json");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("express");
 const fs = require("fs");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const app = express();
 
@@ -13,6 +14,19 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+const dbName = "mondelloDB";
+let db;
+
+const init = () =>
+    MongoClient.connect(process.env.DB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+        .then((client) => {
+            db = client.db(dbName);
+        })
+        .catch((e) => console.error(e));
 
 app.post("/token", async (req, res) => {
     const { username, password, grant_type } = req.body;
@@ -42,15 +56,21 @@ app.post("/token", async (req, res) => {
 });
 
 app.get("/wk", (req, res) => {
-    res.json(wk);
+    db.collection("wk")
+        .find({})
+        .toArray((err, result) => {
+            res.json(result[0]);
+            db.close();
+        });
 });
 
 app.put("/wk", async (req, res) => {
     try {
         await verify(req.headers.authorization);
-        fs.writeFile("wk.json", JSON.stringify(req.body), "utf8", (error) => {
-            if (error) {
-                res.status(500).send(error);
+        db.collection("wk").updateOne({ id: "1" }, req.body, (err, res) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send(err);
             }
             res.json(req.body);
         });
@@ -65,4 +85,7 @@ async function verify(header) {
 }
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+init().then(() => {
+    console.log("starting server on port 3000");
+    app.listen(PORT);
+});
